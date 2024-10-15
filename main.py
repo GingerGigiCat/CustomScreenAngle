@@ -2,6 +2,7 @@ import math
 import os
 import subprocess
 import screeninfo
+import Xlib.display
 
 class color:
    PURPLE = '\033[95m'
@@ -28,6 +29,8 @@ def get_number(message="Enter a number:", range=[0, 10000], allow_decimal=False)
         while True:
             the_input = input(message)
             good = True
+            if the_input in ["reset", "fix", "r"]:
+                return "reset"
 
             if "." in the_input and not allow_decimal: # Checks if there is a decimal and if it should be allowed
                 good = False
@@ -110,7 +113,8 @@ def run_it():
     else:
         print("No monitors detected")
     print("Does your resolution look wrong? This can happen if you've already rotated your screen.")
-    choice_reget_resolution = input(f"Type R then enter to try to get the resolution again.\nType I then enter to manually input a resolution.\n{color.BOLD}Or just press enter to continue with the recognised resolution.{color.END}")
+    choice_reget_resolution = get_choice(["r", "i", ""], f"\nType R then enter if you want to try to get the resolution again.\nType I then enter to manually input a resolution.\n\n{color.BOLD}Or just press enter to continue with the recognised resolution.{color.END}", "Try again, choice must be R, I or just enter")
+
 
 
 def take_initial_inputs():
