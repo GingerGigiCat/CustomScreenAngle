@@ -51,10 +51,10 @@ def get_number(message="Enter a number:", range=[0, 10000], allow_decimal=False)
                 print(float(the_input))
                 return float(the_input)
 
-get_number("Enter an angle", range=[-90, 90], allow_decimal=True)
-get_number("Enter an angle", range=[-90, 90], allow_decimal=True)
-get_number("Enter an angle", range=[-90, 90], allow_decimal=True)
-get_number("Enter an angle", range=[-90, 90], allow_decimal=True)
+#get_number("Enter an angle", range=[-90, 90], allow_decimal=True)
+#get_number("Enter an angle", range=[-90, 90], allow_decimal=True)
+#get_number("Enter an angle", range=[-90, 90], allow_decimal=True)
+#get_number("Enter an angle", range=[-90, 90], allow_decimal=True)
 
 
 
@@ -114,7 +114,7 @@ def run_it():
         print("No monitors detected")
     print("Does your resolution look wrong? This can happen if you've already rotated your screen.")
     choice_reget_resolution = get_choice(["r", "i", ""], f"\nType R then enter if you want to try to get the resolution again.\nType I then enter to manually input a resolution.\n\n{color.BOLD}Or just press enter to continue with the recognised resolution.{color.END}", "Try again, choice must be R, I or just enter")
-
+    
 
 
 def take_initial_inputs():
@@ -124,5 +124,5 @@ def take_initial_inputs():
         angle = int(input("Enter Angle: "))
         os.system(form_xrandr_command(calc_transform_matrix(angle, v_res, h_res), v_res+h_res))
 
-run_it()
+#run_it()
 take_initial_inputs()
