@@ -1,4 +1,4 @@
-<h3 align="centre"><img src="https://cloud-6d0f8u903-hack-club-bot.vercel.app/0pxl_20241016_201340650.mp_2.jpg"></h3>
+<div align="centre"><img height=300 src="https://cloud-6d0f8u903-hack-club-bot.vercel.app/0pxl_20241016_201340650.mp_2.jpg"></div>
 
 # Set your linux monitor to weird angles
 > [!note]
