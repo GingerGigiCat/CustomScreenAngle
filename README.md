@@ -1,4 +1,5 @@
-<div align="centre"><img height=300 src="https://cloud-6d0f8u903-hack-club-bot.vercel.app/0pxl_20241016_201340650.mp_2.jpg"></div>
+<p></p>
+<center><img style="max-height:40vh; margin:0 auto" src="https://cloud-6d0f8u903-hack-club-bot.vercel.app/0pxl_20241016_201340650.mp_2.jpg" alt="A picture of a monitor rotated to around 45º"></center>
 
 # Set your linux monitor to weird angles
 > [!note]
