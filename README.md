@@ -1,3 +1,5 @@
+![https://cloud-6d0f8u903-hack-club-bot.vercel.app/0pxl_20241016_201340650.mp_2.jpg][6]
+
 # Set your linux monitor to weird angles
 > [!note]
 > This will only work if you use **Linux**, and your display manager is **X11**, as it uses the command `xrandr` in order to set screen rotation
@@ -26,4 +28,4 @@ Feel free to open a pull request if you have changes to make, or open an issue i
 1. Select your display/resolution if a list is given
 2. Check that the resolution is correct, since it is likely to be incorrect if the screen has already been rotated by a custom angle
 3. If the resolution is wrong, or to reset the angle, enter r to reset the angle and reget the resolution. If the resolution is still wrong, enter i to input a custom resolution, and probably open an issue so I can attempt to fix it.
-4. Enter the angle you want to rotate to. This should rotate automatically, but if it does't, you can copy the command starting with `xrandr` that is output, into the terminal.
+4. Enter the angle you want to rotate to. This should rotate automatically, but if it doesn't, you can copy the command starting with `xrandr` that is output, into the terminal.
