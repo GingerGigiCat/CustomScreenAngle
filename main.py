@@ -48,8 +48,10 @@ def get_number(message="Enter a number:", range=[0, 10000], allow_decimal=False)
                 print(f"Must be betwen {range[0]} and {range[1]}")
 
             if good:
-                print(float(the_input))
-                return float(the_input)
+                if allow_decimal:
+                    return float(the_input)
+                else:
+                    return int(the_input)
 
 #get_number("Enter an angle", range=[-90, 90], allow_decimal=True)
 #get_number("Enter an angle", range=[-90, 90], allow_decimal=True)
@@ -96,6 +98,8 @@ def form_xrandr_command(matrix: list, max_size: int, display_name: str ="HDMI-1"
     print(command)
     return command
 
+def reset_monitor(monitor):
+    os.system(form_xrandr_command([1.0, -0.0, 0.0, 0.0, 1.0, 0, 0, 0, 1], monitor.height + monitor.width, monitor.name))
 
 def run_it():
     monitors = screeninfo.get_monitors()
@@ -107,15 +111,25 @@ def run_it():
             if monitor.is_primary:
                 primary_text = " (Primary Monitor)"
             print(f"{counter}:  {monitor.name}, {monitor.width}x{monitor.height}")
-        mon_num = int(input(f"Enter a number monitor to choose (1-{len(monitors)}): "))
+        mon_num = get_number(f"Enter a number monitor to choose (don't worry if the resolution doesn't look right yet) (1-{len(monitors)}): ", [1,len(monitors)], allow_decimal=False) - 1
+        monitor = monitors[int(mon_num)]
     elif len(monitors) == 1:
-        print(f"Monitor detected: {monitors[0].name}, {monitors[0].width}x{monitors[0].height}")
+        monitor = monitors[0]
+        print(f"Monitor detected: {monitor.name}, {monitor.width}x{monitor.height}")
     else:
         print("No monitors detected")
+        input("Press Enter to try again")
+        run_it()
+        return
     print("Does your resolution look wrong? This can happen if you've already rotated your screen.")
     choice_reget_resolution = get_choice(["r", "i", ""], f"\nType R then enter if you want to try to get the resolution again.\nType I then enter to manually input a resolution.\n\n{color.BOLD}Or just press enter to continue with the recognised resolution.{color.END}", "Try again, choice must be R, I or just enter")
-    
-
+    if choice_reget_resolution == "r":
+        reset_monitor(monitor)
+        run_it()
+    elif choice_reget_resolution == "i":
+        monitor.height = get_number("Enter the vertical height of your display: ", [250, 18000], allow_decimal=False)
+        monitor.width = get_number(get_number("Enter the horizontal width of your display: ", [250, 18000], allow_decimal=False))
+        print(f"Monitor: {monitor.name}, {monitor.width}x{monitor.height}")
 
 def take_initial_inputs():
     v_res = int(input("Enter V-Resolution: "))
