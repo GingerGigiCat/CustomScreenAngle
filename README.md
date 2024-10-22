@@ -9,7 +9,7 @@ I had to do MATHS and TRIGONOMETRY to get this to work properly so you'd better 
 
 Feel free to open a pull request if you have changes to make, or open an issue if you can't code but want something to be changed or fixed
 
-Yes the monitor is still completely usable.
+Yes the monitor is still usable.
 
 I have no idea what will happen if you try with multiple monitors, I haven't tried.
 
