@@ -24,13 +24,16 @@ def get_choice(inputs=["r", "i", ""], message="Enter your choice:", error_messag
         else:
             the_input = input(error_message)
 
-def get_number(message="Enter a number:", range=[0, 10000], allow_decimal=False):
+def get_number(message="Enter a number:", range=[0, 10000], allow_decimal=False, escape_chars=["r", "q"]):
     while True:
         while True:
             the_input = input(message)
             good = True
             if the_input in ["reset", "fix", "r"]:
-                return "reset"
+                return "r"
+            elif the_input in ["quit", "close", "exit", "q"]:
+                return "q"
+
 
             if "." in the_input and not allow_decimal: # Checks if there is a decimal and if it should be allowed
                 good = False
@@ -101,7 +104,10 @@ def form_xrandr_command(matrix: list, max_size: int, display_name: str ="HDMI-1"
 def reset_monitor(monitor):
     os.system(form_xrandr_command([1.0, -0.0, 0.0, 0.0, 1.0, 0, 0, 0, 1], monitor.height + monitor.width, monitor.name))
 
-def run_it():
+def set_angle(angle, monitor):
+    os.system(form_xrandr_command(calc_transform_matrix(angle, monitor.height, monitor.width), monitor.height + monitor.width, monitor.name))
+
+def monitor_selection():
     monitors = screeninfo.get_monitors()
     if len(monitors) > 1:
         counter = 0
@@ -111,7 +117,7 @@ def run_it():
             if monitor.is_primary:
                 primary_text = " (Primary Monitor)"
             print(f"{counter}:  {monitor.name}, {monitor.width}x{monitor.height}")
-        mon_num = get_number(f"Enter a number monitor to choose (don't worry if the resolution doesn't look right yet) (1-{len(monitors)}): ", [1,len(monitors)], allow_decimal=False) - 1
+        mon_num = get_number(f"Enter a number monitor to choose (don't worry if the resolution doesn't look right yet if you've already rotated) (1-{len(monitors)}): ", [1,len(monitors)], allow_decimal=False) - 1
         monitor = monitors[int(mon_num)]
     elif len(monitors) == 1:
         monitor = monitors[0]
@@ -119,17 +125,34 @@ def run_it():
     else:
         print("No monitors detected")
         input("Press Enter to try again")
-        run_it()
+        monitor_selection()
         return
     print("Does your resolution look wrong? This can happen if you've already rotated your screen.")
-    choice_reget_resolution = get_choice(["r", "i", ""], f"\nType R then enter if you want to try to get the resolution again.\nType I then enter to manually input a resolution.\n\n{color.BOLD}Or just press enter to continue with the recognised resolution.{color.END}", "Try again, choice must be R, I or just enter")
+    choice_reget_resolution = get_choice(["r", "i", ""], f"\nType R then enter if you want to try to get the resolution again.\nType I then enter to manually input a resolution.\n\n{color.BOLD}Or just press enter to continue with the recognised resolution:{color.END} ", "Try again, choice must be R, I or just enter")
     if choice_reget_resolution == "r":
         reset_monitor(monitor)
-        run_it()
+        monitor_selection()
     elif choice_reget_resolution == "i":
         monitor.height = get_number("Enter the vertical height of your display: ", [250, 18000], allow_decimal=False)
-        monitor.width = get_number(get_number("Enter the horizontal width of your display: ", [250, 18000], allow_decimal=False))
+        monitor.width = get_number("Enter the horizontal width of your display: ", [250, 18000], allow_decimal=False)
         print(f"Monitor: {monitor.name}, {monitor.width}x{monitor.height}")
+    return monitor
+
+def run_it():
+    monitor = monitor_selection()
+    while True:
+        angle = get_number("Enter an angle (from -90 to 90) to rotate to, or enter r to reset, or q to quit: ", [-90, 90], allow_decimal=True)
+        try:
+            if angle == "r":
+                angle = 0
+        except ValueError: pass
+        try:
+            if angle == "q":
+                print("Bye bye, you need to run the tool again if you want to reset your rotation by the way.")
+                break
+        except ValueError: pass
+        set_angle(angle, monitor)
+
 
 def take_initial_inputs():
     v_res = int(input("Enter V-Resolution: "))
@@ -138,5 +161,6 @@ def take_initial_inputs():
         angle = int(input("Enter Angle: "))
         os.system(form_xrandr_command(calc_transform_matrix(angle, v_res, h_res), v_res+h_res))
 
-#run_it()
-take_initial_inputs()
+
+run_it()
+#take_initial_inputs()
