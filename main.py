@@ -161,6 +161,5 @@ def take_initial_inputs():
         angle = int(input("Enter Angle: "))
         os.system(form_xrandr_command(calc_transform_matrix(angle, v_res, h_res), v_res+h_res))
 
-print("\n\n\n\n\n\n\n\n\n\n\n\n")
 run_it()
 #take_initial_inputs()
