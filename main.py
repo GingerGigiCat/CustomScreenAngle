@@ -4,7 +4,7 @@ import subprocess
 import screeninfo
 import Xlib.display
 
-class color:
+class colour:
    PURPLE = '\033[95m'
    CYAN = '\033[96m'
    DARKCYAN = '\033[36m'
@@ -128,7 +128,7 @@ def monitor_selection():
         monitor_selection()
         return
     print("Does your resolution look wrong? This can happen if you've already rotated your screen.")
-    choice_reget_resolution = get_choice(["r", "i", ""], f"\nType R then enter if you want to try to get the resolution again.\nType I then enter to manually input a resolution.\n\n{color.BOLD}Or just press enter to continue with the recognised resolution:{color.END} ", "Try again, choice must be R, I or just enter")
+    choice_reget_resolution = get_choice(["r", "i", ""], f"\nType R then enter if you want to try to get the resolution again.\nType I then enter to manually input a resolution.\n\n{colour.BOLD}Or just press enter to continue with the recognised resolution:{colour.END} ", "Try again, choice must be R, I or just enter")
     if choice_reget_resolution == "r":
         reset_monitor(monitor)
         monitor_selection()
@@ -161,6 +161,6 @@ def take_initial_inputs():
         angle = int(input("Enter Angle: "))
         os.system(form_xrandr_command(calc_transform_matrix(angle, v_res, h_res), v_res+h_res))
 
-
+print("\n\n\n\n\n\n\n\n\n\n\n\n")
 run_it()
 #take_initial_inputs()
