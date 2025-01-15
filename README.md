@@ -33,8 +33,8 @@ I have no idea what will happen if you try with multiple monitors, I haven't tri
 1. Select your display/resolution if a list is given
 2. Check that the resolution is correct, since it is likely to be incorrect if the screen has already been rotated by a custom angle
 3. If the resolution is wrong, or to reset the angle, enter r to reset the angle and reget the resolution. If the resolution is still wrong, enter i to input a custom resolution, and probably open an issue so I can attempt to fix it.
-   > [!note]
-   > Note that if your display becomes unusable, you can enter `r` or `0` as the angle, to **reset the rotation**
+> [!note]
+> Note that if your display becomes unusable, you can enter `r` or `0` as the angle, to **reset the rotation**
 4. Enter the angle you want to rotate to (between -90 and 90, or else linux cries in pain). This should rotate automatically, but if it doesn't, you can copy the command starting with `xrandr` that is output, into the terminal.
 
 
