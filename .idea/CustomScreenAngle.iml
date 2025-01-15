@@ -3,7 +3,7 @@
   <component name="FacetManager">
     <facet type="MicroPython" name="MicroPython">
       <configuration>
-        <device name="Micro:bit" web-repl-url="ws://192.168.4.1:8266" uart-connection="true" port="/dev/ttyACM0" />
+        <device name="Micro:bit" web-repl-url="ws://192.168.4.1:8266" uart-connection="true" port="/dev/ttyACM1" />
       </configuration>
     </facet>
   </component>
