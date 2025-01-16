@@ -152,7 +152,7 @@ def run_it():
                 break
         except ValueError: pass
         set_angle(angle, monitor)
-print("If you can see this you are a silly! billy!")
+#print("If you can see this you are a silly! billy!")
 
 def take_initial_inputs():
     v_res = int(input("Enter V-Resolution: "))
@@ -162,5 +162,5 @@ def take_initial_inputs():
         #os.system(form_xrandr_command(calc_transform_matrix(angle, v_res, h_res), v_res+h_res))
         print(form_xrandr_command(calc_transform_matrix(angle, v_res, h_res), v_res + h_res))
 
-run_it()
+# run_it() ################# UNCOMMENT THIS TO USE MANUALLY
 #take_initial_inputs()
