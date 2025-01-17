@@ -64,15 +64,15 @@ def get_number(message="Enter a number:", range=[0, 10000], allow_decimal=False,
 
 
 def calc_pixel_shift(angle, v_res, h_res): # Calculate the amount of pixels to shift the display horizontally by, using fancy trigonometry.
-    print(f"sin{angle} = {round(math.sin(math.radians(angle)), 8)}") # math.radians is needed because python maths is weird and to prevent catastrophic failure.
+    #print(f"sin{angle} = {round(math.sin(math.radians(angle)), 8)}") # math.radians is needed because python maths is weird and to prevent catastrophic failure.
     x_shift = 0
     y_shift = 0
     if angle >= 0:
         x_shift = v_res * round(math.sin(math.radians(angle)), 8)
     elif angle < 0:
         y_shift = h_res * round(math.sin(math.radians(-angle)), 8)
-    print(f"X shift: {x_shift}")
-    print(f"Y shift: {y_shift}")
+    #print(f"X shift: {x_shift}")
+    #print(f"Y shift: {y_shift}")
     return x_shift, y_shift
 
 def calc_transform_matrix(angle, v_res, h_res):
@@ -152,7 +152,7 @@ def run_it():
                 break
         except ValueError: pass
         set_angle(angle, monitor)
-#print("If you can see this you are a silly! billy!")
+
 
 def take_initial_inputs():
     v_res = int(input("Enter V-Resolution: "))
@@ -162,5 +162,5 @@ def take_initial_inputs():
         #os.system(form_xrandr_command(calc_transform_matrix(angle, v_res, h_res), v_res+h_res))
         print(form_xrandr_command(calc_transform_matrix(angle, v_res, h_res), v_res + h_res))
 
-# run_it() ################# UNCOMMENT THIS TO USE MANUALLY
-#take_initial_inputs()
+#run_it() ################# UNCOMMENT THIS TO USE MANUALLY
+

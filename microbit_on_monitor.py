@@ -81,7 +81,7 @@ radio.config(group=24, power=3)
 
 while True:
     x_val = accelerometer.get_x()
-    if x_val/1000 < -6.5/7: # These if statements show a rotated line on the microbit screen that should appear flat with the rotation
+    if x_val/1000 < -6.5/7: # These if statements show a rotated line on the microbit screen that should appear flat with the rotation, just as a basic indicator
         display.show(rotat90)
     elif x_val/1000 < -6/7:
         display.show(rotat2)

@@ -5,11 +5,16 @@
 > [!note]
 > This will only work if you use **Linux**, and your display manager is **X11**, as it uses the command `xrandr` in order to set screen rotation
 
+> [!WARNING]
+> If you are using cinnamon, or any other window manager that offers fractional scaling, **DISABLE FRACTIONAL SCALING**, trust me i know from experience
+
+
+
 I had to do MATHS and TRIGONOMETRY to get this to work properly so you'd better appreciate it
 
 Feel free to open a pull request if you have changes to make, or open an issue if you can't code but want something to be changed or fixed
 
-Yes the monitor is still usable.
+Yes the monitor is still fully usable.
 
 I have no idea what will happen if you try with multiple monitors, I haven't tried.
 
