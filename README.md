@@ -1,5 +1,5 @@
 <p></p>
-<center><img style="max-height:40vh; margin:0 auto" src="https://cloud-6d0f8u903-hack-club-bot.vercel.app/0pxl_20241016_201340650.mp_2.jpg" alt="A picture of a monitor rotated to around 45º"></center>
+<center><img style="max-height:40vh; margin:0 auto" src="https://cloud-m3nwxccz4-hack-club-bot.vercel.app/0pxl_20250118_222421911.mp.jpg" alt="A picture of a monitor rotated to around 45º"></center>
 
 # Set your linux monitor to weird angles
 > [!note]
@@ -19,6 +19,22 @@ Feel free to open a pull request if you have changes to make, or open an issue i
 Yes the monitor is still fully usable.
 
 I have no idea what will happen if you try with multiple monitors, I haven't tried.
+
+## Now with automatic rotation with a microbit!
+
+To use with a microbit, just upload the python microbit files `microbit_on_monitor.py` and `microbit_receiver.py` to https://python.microbit.org/v/3/, then save hex files and put them on the microbit.
+
+Ideally, the microbit should be mounted so that the display of the microbit is parallel to the display of your monitor. I would have 3D printed a bracket to attach it to my monitor, but I don't have a 3D printer (yet)
+
+The microbit on the monitor wirelessly transmits to the microbit at the computer
+
+If using with microbits, run `pc_microbit_adapter` on the pc. It should automatically detect your monitor and prompt you through a setup process.
+
+The angle will be automatically set when you are rotating your display! It will snap to -90, 0 and 90 degrees, because that's probably what you actually want your monitor set as.
+
+A more practical use case with this, than using wacky rotations, is automatically rotating only between portrait and landscape, which this can do! You are prompted whether to enable it in the setup, and you can edit it in the json file `auto_rotate_config.json`
+
+
 
 ## Setup
 1. Install python or use your favourite python interpreter
@@ -46,6 +62,10 @@ I have no idea what will happen if you try with multiple monitors, I haven't tri
 
 
 ## Gallery
+This was the old cover image
+<center><img style="max-height:40vh; margin:0 auto" src="https://cloud-6d0f8u903-hack-club-bot.vercel.app/0pxl_20241016_201340650.mp_2.jpg" alt="A picture of a monitor rotated to around 45º"></center>
+
+
 You can have just a slight tilt
 <center><img style="max-height:40vh; margin:0 auto" src="https://cloud-3erbv079e-hack-club-bot.vercel.app/0pxl_20241016_201435065.mp.jpg" alt="A picture of a monitor rotated to around 15º"></center>
 
