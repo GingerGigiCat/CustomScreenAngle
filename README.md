@@ -7,6 +7,8 @@
 
 > [!WARNING]
 > If you are using cinnamon, or any other window manager that offers fractional scaling, **DISABLE FRACTIONAL SCALING**, trust me i know from experience
+> 
+> Also, you may want to consider killing cinnamon so that it goes into fallback mode, which stops flickering when changing angles
 
 
 

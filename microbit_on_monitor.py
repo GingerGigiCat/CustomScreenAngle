@@ -1,6 +1,8 @@
 from microbit import *
 import radio
 
+reversed = True # If the microbit is upside down, set this to true, otherwise it can be false.
+
 rotat90 = Image("00200:"
                 "00200:"
                 "00200:"
@@ -81,32 +83,38 @@ radio.config(group=24, power=3)
 
 while True:
     x_val = accelerometer.get_x()
-    if x_val/1000 < -6.5/7: # These if statements show a rotated line on the microbit screen that should appear flat with the rotation, just as a basic indicator
+
+    if reversed:
+        temp_x_val = 0 - x_val
+    else:
+        temp_x_val = x_val
+
+    if temp_x_val/1000 < -6.5/7: # These if statements show a rotated line on the microbit screen that should appear flat with the rotation, just as a basic indicator
         display.show(rotat90)
-    elif x_val/1000 < -6/7:
+    elif temp_x_val/1000 < -6/7:
         display.show(rotat2)
-    elif x_val/1000 < -5.5/7:
+    elif temp_x_val/1000 < -5.5/7:
         display.show(rotat3)
-    elif x_val/1000 < -4.5/7:
+    elif temp_x_val/1000 < -4.5/7:
         display.show(rotat4)
-    elif x_val/1000 < -2.5/7:
+    elif temp_x_val/1000 < -2.5/7:
         display.show(rotat5)
-    elif x_val/1000 < -1.5/7:
+    elif temp_x_val/1000 < -1.5/7:
         display.show(rotat6)
-    elif x_val/1000 < 1.5/7:
+    elif temp_x_val/1000 < 1.5/7:
         display.show(rotatflat)
 
-    elif x_val/1000 < 2.5/7:
+    elif temp_x_val/1000 < 2.5/7:
         display.show(rotat8)
-    elif x_val/1000 < 4/7:
+    elif temp_x_val/1000 < 4/7:
         display.show(rotat9)
-    elif x_val/1000 < 5.5/7:
+    elif temp_x_val/1000 < 5.5/7:
         display.show(rotat10)
-    elif x_val/1000 < 6/7:
+    elif temp_x_val/1000 < 6/7:
         display.show(rotat11)
-    elif x_val/1000 < 6.5/7:
+    elif temp_x_val/1000 < 6.5/7:
         display.show(rotat12)
     else:
         display.show(rotat90)
-    print(x_val, x_val/1000 * 7)
+    print(x_val, x_val / 1000 * 7)
     radio.send(str(x_val))

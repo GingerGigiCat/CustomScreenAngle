@@ -88,24 +88,25 @@ def calc_transform_matrix(angle, v_res, h_res):
     matrix.append(0)
     matrix.append(0)
     matrix.append(1)
-    print(f"Transform: {matrix}")
+    #print(f"Transform: {matrix}")
     return matrix
 
-def form_xrandr_command(matrix: list, max_size: int, display_name: str ="HDMI-1"):
+def form_xrandr_command(matrix: list, max_size: int, display_name: str ="HDMI-1", print_output=True):
     matrix_but_string = ""
     for value in matrix: # Convert the array to a string that xrandr will like
         matrix_but_string += f"{value},"
     matrix_but_string = matrix_but_string[:-1] # Remove the last character because it is a comma
 
     command = f"xrandr --output {display_name} --transform {matrix_but_string} --fb {max_size}x{max_size}"
-    print(command)
+    if print_output:
+        print(command)
     return command
 
 def reset_monitor(monitor):
     os.system(form_xrandr_command([1.0, -0.0, 0.0, 0.0, 1.0, 0, 0, 0, 1], monitor.height + monitor.width, monitor.name))
 
-def set_angle(angle, monitor):
-    os.system(form_xrandr_command(calc_transform_matrix(angle, monitor.height, monitor.width), monitor.height + monitor.width, monitor.name))
+def set_angle(angle, monitor, print_output=True):
+    os.system(form_xrandr_command(calc_transform_matrix(angle, monitor.height, monitor.width), monitor.height + monitor.width, monitor.name, print_output=print_output))
 
 def monitor_selection():
     monitors = screeninfo.get_monitors()
