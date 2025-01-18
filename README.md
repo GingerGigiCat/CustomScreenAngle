@@ -22,7 +22,7 @@ I have no idea what will happen if you try with multiple monitors, I haven't tri
 
 ## Now with automatic rotation with a microbit!
 
-To use with a microbit, just upload the python microbit files `microbit_on_monitor.py` and `microbit_receiver.py` to https://python.microbit.org/v/3/, then save hex files and put them on the microbit.
+To use with a microbit, just upload the python microbit files `microbit_on_monitor.py` and `microbit_receiver.py` to https://python.microbit.org/v/3/, then save hex files and put them on the microbits.
 
 Ideally, the microbit should be mounted so that the display of the microbit is parallel to the display of your monitor. I would have 3D printed a bracket to attach it to my monitor, but I don't have a 3D printer (yet)
 
