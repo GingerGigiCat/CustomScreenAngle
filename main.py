@@ -117,11 +117,15 @@ def monitor_selection():
             primary_text = ""
             if monitor.is_primary:
                 primary_text = " (Primary Monitor)"
+            if monitor.height > monitor.width: # If the height is more than the width, it's probably already vertical, so say hi
+                print("(Nice to see that you're a fellow vertical monitor enjoyer)")
             print(f"{counter}:  {monitor.name}, {monitor.width}x{monitor.height}")
         mon_num = get_number(f"Enter a number monitor to choose (don't worry if the resolution doesn't look right yet if you've already rotated) (1-{len(monitors)}): ", [1,len(monitors)], allow_decimal=False) - 1
         monitor = monitors[int(mon_num)]
     elif len(monitors) == 1:
         monitor = monitors[0]
+        if monitor.height > monitor.width:  # If the height is more than the width, it's probably already vertical, so say hi
+            print("(Nice to see that you're a fellow vertical monitor enjoyer)")
         print(f"Monitor detected: {monitor.name}, {monitor.width}x{monitor.height}")
     else:
         print("No monitors detected")
@@ -163,5 +167,6 @@ def take_initial_inputs():
         #os.system(form_xrandr_command(calc_transform_matrix(angle, v_res, h_res), v_res+h_res))
         print(form_xrandr_command(calc_transform_matrix(angle, v_res, h_res), v_res + h_res))
 
-run_it() ################# Comment this out to use with microbit
+if __name__ == "__main__":
+    run_it()
 

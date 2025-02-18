@@ -28,7 +28,7 @@ Ideally, the microbit should be mounted so that the display of the microbit is p
 
 The microbit on the monitor wirelessly transmits to the microbit at the computer
 
-If using with microbits, run `pc_microbit_adapter` on the pc. It should automatically detect your monitor and prompt you through a setup process.
+If using with microbits, run `pc_microbit_adapter.py` on the pc. It should automatically detect your monitor and prompt you through a setup process.
 
 The angle will be automatically set when you are rotating your display! It will snap to -90, 0 and 90 degrees, because that's probably what you actually want your monitor set as.
 
@@ -48,9 +48,9 @@ A more practical use case with this, than using wacky rotations, is automaticall
    > ### or
    > `sudo pacman -S python` for **Arch** distros
 
-2. Download main.py
+2. Download main.py, or do `git clone https://github.com/GingerGigiCat/CustomScreenAngle`
 3. Open it in python and run it.
-   > Open a terminal in the folder that main.py was downloaded to, and run `python3 ./main.py`
+   > Open a terminal in the folder that main.py was downloaded to with `cd CustomScreenAngle` to go into the folder if you did git clone, and run `python3 ./main.py`
 
 ## Usage
 1. Select your display/resolution if a list is given
