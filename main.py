@@ -163,5 +163,5 @@ def take_initial_inputs():
         #os.system(form_xrandr_command(calc_transform_matrix(angle, v_res, h_res), v_res+h_res))
         print(form_xrandr_command(calc_transform_matrix(angle, v_res, h_res), v_res + h_res))
 
-#run_it() ################# UNCOMMENT THIS TO USE MANUALLY
+run_it() ################# Comment this out to use with microbit
 
